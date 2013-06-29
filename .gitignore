@@ -1,3 +1,5 @@
+/*.pyc
+/cfg_build.py
 build/vc*
 /src/tools/win/*.APS
 /bin/win_x86/*.exe
