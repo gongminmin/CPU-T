@@ -1,0 +1,8 @@
+build/vc*
+/src/tools/win/*.APS
+/bin/win_x86/*.exe
+/bin/win_x64/*.exe
+/lib/win_x86
+/lib/win_x64
+/src/sdk/CPUIdentifier.cpp
+/src/sdk/CacheIdentifier.cpp

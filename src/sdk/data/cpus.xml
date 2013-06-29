@@ -1,0 +1,277 @@
+<?xml version='1.0'?>
+
+<cpus name="Unknown CPU">
+	<cpu vendor="Intel" id="GenuineIntel" name="Unknown CPU">
+		<family value="4" name="80486">
+			<model value="0" name="80486 DX-25/33" tech="1000" transistors="1.2M"/>
+			<model value="1" name="80486 DX-50" tech="800" transistors="1.2M"/>
+			<model value="2" name="80486 SX" tech="1000" transistors="1.2M"/>
+			<model value="3" name="80486 DX2"/>
+			<model value="4" name="80486 SL" tech="800" transistors="1.4M"/>
+			<model value="5" name="80486 SX2"/>
+			<model value="7" name="80486 DX2WB"/>
+			<model value="8" name="80486 DX4" tech="600" transistors="1.6M"/>
+			<model value="9" name="80486 DX4WB"/>
+		</family>
+		<family value="5" name="Pentium">
+			<model value="0" name="P5 A-step"/>
+			<model value="1" name="Pentium 60/66" tech="800" transistors="3.1M" codename="P5" package="Socket 4"/>
+			<model value="2" name="Pentium 75-200" tech="350-600" transistors="3.2-3.3M" codename="P54" package="Socket 5"/>
+			<model value="3" name="Pentium OverDriver" codename="P24T"/>
+			<model value="4" name="Pentium MMX" tech="350" transistors="4.5M" codename="P55C" package="Socket 7"/>
+			<model value="7" name="Pentium" codename="P54C"/>
+			<model value="8" name="Pentium MMX" tech="250" codename="P55C"/>
+		</family>
+		<family value="6" name="Pentium Pro">
+			<model value="0" name="P6 A-step"/>
+			<model value="1" name="Pentium Pro" tech="600" transistors="5.5M" codename="P6" package="Socket 8"/>
+			<model value="3" name="Pentium II" tech="350" transistors="7.5M" codename="Klamath" package="Slot 1"/>
+			<model value="5" name="Pentium II" tech="250" transistors="7.5M" codename="Deschutes" package="Slot 1"/>
+			<model value="6" name="Celeron A/370" tech="250" transistors="19.0M" codename="Mendocino">
+				<stepping begin="0" end="4" name="Celeron A" package="Slot 1"/>
+				<stepping begin="5" end="F" name="Celeron 370" package="Socket 370"/>
+			</model>
+			<model value="7" name="Pentium III" tech="250" transistors="9.5M" codename="Katmai" package="Slot 1"/>
+			<model value="8" name="Pentium III" tech="180" transistors="28.1M" codename="Coppermine">
+				<stepping value="6" revision="C0" package="Slot 1"/>
+				<stepping value="A" revision="D0" package="Socket 370"/>
+			</model>
+			<model value="9" name="Pentium M" tech="130" transistors="77.0M" codename="Banias"/>
+			<model value="A" name="Pentium III Xeon" tech="180" transistors="28.0M" codename="P3"/>
+			<model value="B" name="Pentium III" tech="130" transistors="28.1M" codename="Tualatin" package="Socket 370"/>
+			<model value="D" name="Pentium M" tech="90" transistors="140.0M" codename="Dothan" tdp="21"/>
+			<model value="E" name="Core" tech="65" codename="Yonah" tdp="31"/>
+			<model value="F" name="Core 2" tech="65" transistors="291M" codename="Merom" core="2" package="LGA 775">
+				<stepping value="B" name="Core 2 Extreme" codename="Kentsfield" core="4"/>
+			</model>
+			<model value="15" name="EP80579" tech="65" codename="Tolapai"/>
+			<model value="16" name="Core 2 Celeron" tech="65" codename="Merom-L"/>
+			<model value="17" name="Core 2 Extreme" tech="45" codename="Penryn" core="2"/>
+			<model value="1A" name="Core i7" tech="45" transistors="731M" codename="Bloomfield" core="4"/>
+			<model value="1C" name="Atom" tech="45"/>
+			<model value="1D" name="Xeon MP" tech="45" codename="DUN" core="6"/>
+			<model value="1E" name="Core i5/i7" tech="45" transistors="774M" codename="Lynnfield" core="4" package="Socket 1156 LGA"/>
+			<model value="1F" name="Core i5/i7" tech="45" codename="ABD/HVD" core="2"/>
+			<model value="25" name="Core i3/i5" tech="32" codename="Clarkdale" core="2" package="Socket 1156 LGA"/>
+			<model value="26" name="Atom" tech="45"/>
+			<model value="27" name="Atom" tech="22"/>
+			<model value="2A" name="2nd Gen Core" tech="32" transistors="1.16B" codename="Sandy Bridge" core="4" package="Socket 1155 LGA"/>
+			<model value="2C" name="Core i7" tech="32" transistors="1.170B" codename="Gulftown" core="6"/>
+			<model value="2D" name="Xeon E5" tech="32" codename="Sandy Bridge-E" core="8" package="Socket 2011 LGA"/>
+			<model value="2E" name="Xeon MP" tech="45" codename="Bloomfield" core="8"/>
+			<model value="2F" name="Xeon MP" tech="32" codename="Westmere-EX" core="10"/>
+			<model value="36" name="Atom" tech="32"/>
+			<model value="3A" name="3rd Gen Core" tech="22" codename="Ivy Bridge" core="4" package="Socket 1155 LGA"/>
+			<model value="3E" name="3rd Gen Core" tech="22" codename="Ivy Bridge-E" core="8"/>
+			<model value="3C" name="4th Gen Core" tech="22" codename="Haswell" core="4"/>
+			<model value="45" name="4th Gen Core" tech="22" codename="Haswell" core="4"/>
+		</family>
+		<family value="7" name="Itanium">
+			<model value="0" name="Itanium" tech="180" codename="Merced"/>
+		</family>
+		<family value="B" name="Xeon Phi">
+			<model value="0" name="Xeon Phi" tech="45" codename="L1OM" core="32"/>
+			<model value="1" name="Xeon Phi" tech="22" codename="K1OM" core="62"/>
+		</family>
+		<family value="F" name="Pentium 4">
+			<model value="0" name="Pentium 4" tech="180" transistors="42M" codename="NetBurst"/>
+			<model value="1" name="Pentium 4" tech="180" codename="Willamette"/>
+			<model value="2" name="Pentium 4" tech="130" transistors="55M" codename="Northwood"/>
+			<model value="3" name="Pentium 4E" tech="90" transistors="125M-169M" codename="Prescott"/>
+			<model value="4" name="Pentium 4F" tech="90" codename="Prescott-2M"/>
+			<model value="6" name="Pentium 4F" tech="65" codename="Cedar Mill"/>
+		</family>
+		<family value="1F" name="Itanium 2">
+			<model value="0" name="Itanium 2" tech="180" codename="McKinley"/>
+			<model value="1" name="Itanium 2" tech="130" codename="Madison/Deerfield"/>
+			<model value="2" name="Itanium 2" tech="130" codename="Madison 9M"/>
+		</family>
+		<family value="20" name="Itanium 2 DC/QC">
+			<model value="0" name="Itanium 2 DC" tech="90" codename="Montecito"/>
+			<model value="1" name="Itanium 2 DC" tech="90" codename="Montvale"/>
+			<model value="2" name="Itanium 2 QC" tech="65" codename="Tukwila"/>
+		</family>
+		<family value="21" name="Itanium 2 8C">
+			<model value="0" name="Itanium 2 8C" tech="32" codename="Poulson"/>
+		</family>
+	</cpu>
+
+	<cpu vendor="AMD" id="AuthenticAMD" name="Unknown CPU">
+		<family value="4" name="Am486">
+			<model value="3" name="Am486DX2"/>
+			<model value="7" name="Am486DX2WB"/>
+			<model value="8" name="Am486DX4"/>
+			<model value="9" name="Am486DX4WB"/>
+			<model value="A" name="Elan SC400"/>
+			<model value="E" name="Am5x86"/>
+			<model value="F" name="Am5x86WB"/>
+		</family>
+		<family value="5" name="K5">
+			<model value="0" name="K5 SSA5 (PR75/90/100)"/>
+			<model value="1" name="K5 5k86 (PR120/133)"/>
+			<model value="2" name="K5 5k86 (PR166)"/>
+			<model value="3" name="K5 5k86 (PR200)"/>
+			<model value="6" name="K6" tech="300"/>
+			<model value="7" name="K6E" tech="250"/>
+			<model value="8" name="K6-2">
+				<stepping begin="0" end="7" name="K6-2"/>
+				<stepping begin="8" end="F" name="K6-2E"/>
+			</model>
+			<model value="9" name="K6-III"/>
+			<model value="D">
+				<stepping begin="0" end="3" name="K6-III E+" tech="180"/>
+				<stepping begin="4" end="F" name="K6-2 E+" tech="180"/>
+			</model>
+		</family>
+		<family value="6" name="Athlon">
+			<model value="1" name="Athlon" tech="250">
+				<stepping value="1" revision="C1"/>
+				<stepping value="2" revision="C2"/>
+			</model>
+			<model value="2" name="Athlon" tech="180">
+				<stepping value="1" revision="A1"/>
+				<stepping value="2" revision="A2"/>
+			</model>
+			<model value="3" name="Duron" codename="SF">
+				<stepping value="0" revision="A0"/>
+				<stepping value="1" revision="A2"/>
+			</model>
+			<model value="4" name="Athlon" codename="TB"/>
+			<model value="6" name="Athlon" codename="PM"/>
+			<model value="7" name="Duron" codename="MG"/>
+			<model value="8" name="Athlon" codename="TH/AP"/>
+			<model value="A" name="Athlon" codename="BT"/>
+		</family>
+		<family value="F" name="K8">
+			<model value="0" name="K8" package="Socket 754/S1"/>
+			<model value="1" name="K8" package="Socket 940/F1207"/>
+			<model value="3" name="K8" package="Socket 939/AM2/ASB1"/>
+			<model value="4" name="K8 SH" codename="SC"/>
+			<model value="8" name="K8 CH" codename="SC"/>
+			<model value="C0" name="K8 DH" codename="SC"/>
+			<![CDATA[
+			<model value="0" name="K8 JH" codename="DC"/>
+			<model value="8" name="K8 JH" codename="DC"/>]]>
+		</family>
+		<family value="1F" name="K8L">
+			<model value="0" name="K8L Rev A" codename="DR"/>
+			<model value="2" name="K8L Rev B" codename="DR"/>
+			<model value="4" name="K8L Rev C" codename="RB"/>
+			<model value="5" name="K8L Rev C" codename="BL"/>
+			<model value="6" name="K8L Rev C" codename="DA"/>
+			<model value="8" name="K8L Rev D HY" codename="SCM"/>
+			<model value="9" name="K8L Rev D HY" codename="MCM"/>
+			<model value="A" name="K8L Rev E" codename="PH"/>
+		</family>
+		<family value="2F" name="K8L">
+			<model value="3" name="K8L Rev B" codename="LH"/>
+		</family>
+		<family value="3F" name="K8L">
+			<model value="0" name="K8L Rev A" codename="LN1"/>
+			<model value="1" name="K8L Rev B" codename="LN1"/>
+			<model value="2" name="K8L Rev B" codename="LN2"/>
+		</family>
+		<family value="5F" name="BC" codename="ON">
+			<model value="1" name="BC Rev B"/>
+			<model value="2" name="BC Rev C"/>
+		</family>
+		<family value="6F" name="BD/TN">
+			<model value="0" name="BD Rev A" codename="OR"/>
+			<model value="1" name="BD Rev B" codename="OR"/>
+			<model value="2" name="BD Rev C" codename="OR"/>
+			<model value="10" name="TN Rev A" codename="TN"/>
+		</family>
+	</cpu>
+
+	<cpu vendor="Centaur" id="CentaurHauls" name="Unknown CPU">
+		<family value="5" name="Winchip">
+			<model value="4" name="WinChip C6"/>
+			<model value="8" name="WinChip C2"/>
+			<model value="9" name="WinChip C3"/>
+		</family>
+	</cpu>
+
+	<cpu vendor="Cyrix" id="CyrixInstead" name="Unknown CPU">
+		<family value="4" name="5x86">
+			<model value="9" name="5x86" codename="5x86"/>
+		</family>
+		<family value="5" name="6x86">
+			<model value="2" name="6x86" codename="M1"/>
+			<model value="4" name="GX/GXm" codename="MediaGX"/>
+		</family>
+		<family value="6" name="6x86MX">
+			<model value="0" name="6x86MX" codename="M2"/>
+			<model value="6" name="M3" codename="M3"/>
+		</family>
+	</cpu>
+
+	<cpu vendor="Transmeta" id="TransmetaCPU" name="Unknown CPU">
+		<family value="5" name="Crusoe">
+			<model value="4" name="Crusoe TM3x00 and TM5x00"/>
+		</family>
+		<family value="F" name="Efficeon">
+			<model value="2" name="Efficeon TM8000" tech="90/130"/>
+			<model value="3" name="Efficeon TM8000" tech="90"/>
+		</family>
+	</cpu>
+
+	<cpu vendor="Transmeta" id="GenuineTMx86" name="Unknown CPU">
+	</cpu>
+
+	<cpu vendor="NSC" id="Geode by NSC" name="Unknown CPU">
+		<family value="5" name="Geode">
+			<model value="4" name="Geode GX1/GXLV/GXm"/>
+			<model value="5" name="Geode GX2"/>
+			<model value="A" name="Geode LX"/>
+		</family>
+	</cpu>
+
+	<cpu vendor="NexGen" id="NexGenDriven" name="Unknown CPU">
+		<family value="5" name="Nx586">
+			<model value="0" name="Nx586"/>
+		</family>
+	</cpu>
+
+	<cpu vendor="Rise" id="RiseRiseRise" name="Unknown CPU">
+		<family value="5" name="mP6">
+			<model value="0" name="mP6" tech="250"/>
+			<model value="2" name="mP6" tech="180"/>
+		</family>
+	</cpu>
+
+	<cpu vendor="SiS" id="SiS SiS SiS " name="Unknown CPU">
+		<family value="5" name="55x">
+			<model value="0" name="55x"/>
+		</family>
+	</cpu>
+
+	<cpu vendor="UMC" id="UMC UMC UMC " name="Unknown CPU">
+		<family value="4" name="80486">
+			<model value="1" name="80486 U5D"/>
+			<model value="2" name="80486 U5S"/>
+		</family>
+	</cpu>
+
+	<cpu vendor="VIA" id="VIA VIA VIA " name="Unknown CPU">
+		<family value="6" name="C3">
+			<model value="5" name="Cyrix M2 core"/>
+			<model value="6" name="WinChip C5A core"/>
+			<model value="7" name="WinChip C5B/C5C core">
+				<stepping begin="0" end="7" name="WinChip C5B core"/>
+				<stepping begin="8" end="F" name="WinChip C5C core"/>
+			</model>
+			<model value="8" name="WinChip C5N core"/>
+			<model value="9" name="WinChip C5XL/C5P core">
+				<stepping begin="0" end="7" name="WinChip C5XL core"/>
+				<stepping begin="8" end="F" name="WinChip C5P core"/>
+			</model>
+			<model value="A" name="WinChip C5J core"/>
+		</family>
+	</cpu>
+
+	<cpu vendor="Vortex" id="Vortex86 SoC" name="Unknown CPU">
+	</cpu>
+
+	<cpu vendor="KVM" id="KVMKVMKVM" name="Unknown CPU">
+	</cpu>
+</cpus>

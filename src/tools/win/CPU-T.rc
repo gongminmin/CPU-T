@@ -1,0 +1,330 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Chinese (Simplified, PRC) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
+#pragma code_page(936)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#endif\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#endif\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUT_CHS DIALOGEX 0, 0, 248, 161
+STYLE DS_SETFONT | DS_MODALFRAME | DS_SETFOREGROUND | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "CPU-T"
+FONT 9, "宋体", 0, 0, 0x1
+BEGIN
+    LTEXT           "V0.1.0 版权所有(C) 龚敏敏, 2013",IDC_STATIC,18,82,125,8
+    PUSHBUTTON      "http://www.klayge.org",IDC_HOMEPAGE,15,121,188,15
+    LTEXT           "CPU-T，开源的CPU检测软件",IDC_STATIC,19,22,97,8
+    DEFPUSHBUTTON   "确定(&O)",IDOK,170,18,60,15
+END
+
+IDD_CPUINFO_CHS DIALOGEX 0, 0, 589, 243
+STYLE DS_SETFONT | DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_VISIBLE | WS_CAPTION
+CAPTION "CPU详细资料"
+FONT 9, "宋体", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "确定(&O)",IDOK,209,209,51,18
+    LTEXT           "型号",IDC_STATIC,162,98,17,8
+    LTEXT           "未知",IDC_MODEL,192,98,17,8
+    LTEXT           "未知",IDC_SPEC,52,38,208,8
+    LTEXT           "规格",IDC_STATIC,22,38,17,8
+    LTEXT           "系列",IDC_STATIC,92,98,17,8
+    LTEXT           "未知",IDC_FAMILY,122,98,17,8
+    LTEXT           "名称",IDC_STATIC,22,28,17,8
+    LTEXT           "未知",IDC_CPU,52,28,208,8
+    LTEXT           "步进",IDC_STATIC,232,98,17,8
+    LTEXT           "未知",IDC_STEPPING,262,98,17,8
+    LTEXT           "主频",IDC_STATIC,22,48,17,8
+    LTEXT           "未知",IDC_FREQUENCY,52,48,110,8
+    LTEXT           "类型",IDC_STATIC,22,98,17,8
+    LTEXT           "未知",IDC_TYPE,52,98,17,8
+    LTEXT           "L1数据",IDC_STATIC,308,28,25,8
+    LTEXT           "未知",IDC_L1_DATA_CACHE,340,28,229,8
+    LTEXT           "时钟比率:",IDC_STATIC,308,103,37,8
+    LTEXT           "主板频率:",IDC_STATIC,308,113,37,8
+    LTEXT           "未知",IDC_MAINBOARD,364,113,110,8
+    PUSHBUTTON      "关于(&A)",IDC_ABOUT,329,209,51,18
+    LTEXT           "未知",IDC_RATIO,364,103,110,8
+    LTEXT           "指令集",IDC_STATIC,22,112,25,8
+    LTEXT           "未知",IDC_INSTRUCTION_SET,52,112,208,32
+    LTEXT           "内核数",IDC_STATIC,22,157,25,8
+    LTEXT           "未知",IDC_NUM_CORES,52,157,110,8
+    LTEXT           "线程数",IDC_STATIC,22,168,25,8
+    LTEXT           "未知",IDC_NUM_THREADS,52,168,110,8
+    LTEXT           "代号",IDC_STATIC,22,58,17,8
+    LTEXT           "未知",IDC_CODENAME,52,58,110,8
+    LTEXT           "封装",IDC_STATIC,22,68,17,8
+    LTEXT           "未知",IDC_PACKAGE,52,68,110,8
+    LTEXT           "工艺",IDC_STATIC,22,78,17,8
+    LTEXT           "未知",IDC_TECHNOLOGY,52,78,110,8
+    LTEXT           "晶体管",IDC_STATIC,22,88,25,8
+    LTEXT           "未知",IDC_TRANSISTORS,52,88,110,8
+    GROUPBOX        "处理器",IDC_STATIC,12,11,277,184
+    GROUPBOX        "缓存",IDC_STATIC,298,12,277,65
+    LTEXT           "L1指令",IDC_STATIC,308,38,25,8
+    LTEXT           "未知",IDC_L1_CODE_CACHE,340,38,229,8
+    LTEXT           "L2",IDC_STATIC,308,48,9,8
+    LTEXT           "未知",IDC_L2_CACHE,340,48,229,8
+    LTEXT           "L3",IDC_STATIC,308,58,9,8
+    LTEXT           "未知",IDC_L3_CACHE,340,58,229,8
+    GROUPBOX        "时钟",IDC_STATIC,298,87,277,65
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 2,0,0,0
+ PRODUCTVERSION 2,0,0,0
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "080404b0"
+        BEGIN
+            VALUE "FileDescription", "CPU-T"
+            VALUE "FileVersion", "2.0.0.0"
+            VALUE "InternalName", "CPU-T"
+            VALUE "LegalCopyright", "Copyright(C) Minmin Gong, 2013\\1"
+            VALUE "OriginalFilename", "CPU-T.EXE"
+            VALUE "ProductName", "CPU-T"
+            VALUE "ProductVersion", "2.0.0.0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x804, 1200
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_ABOUT_CHS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 241
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 154
+    END
+
+    IDD_CPUINFO_CHS, DIALOG
+    BEGIN
+        LEFTMARGIN, 6
+        RIGHTMARGIN, 582
+        TOPMARGIN, 6
+        BOTTOMMARGIN, 236
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_ICON                ICON                    "..\..\..\CPU-T.ico"
+#endif    // Chinese (Simplified, PRC) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUT_EN DIALOGEX 0, 0, 248, 161
+STYLE DS_SETFONT | DS_MODALFRAME | DS_SETFOREGROUND | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "CPU-T"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "V0.1.0 Copyright(C) Minmin Gong, 2013",IDC_STATIC,18,82,125,8
+    PUSHBUTTON      "http://www.klayge.org",IDC_HOMEPAGE,15,121,188,15
+    LTEXT           "CPU-T, an open source CPU detection software",IDC_STATIC,19,22,97,8
+    DEFPUSHBUTTON   "&OK",IDOK,170,18,60,15
+END
+
+IDD_CPUINFO_EN DIALOGEX 0, 0, 589, 228
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_POPUP | WS_VISIBLE | WS_CAPTION
+CAPTION "CPU information"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "&OK",IDOK,209,203,51,18
+    LTEXT           "Model",IDC_STATIC,159,98,20,8
+    LTEXT           "Unknown",IDC_MODEL,192,98,17,8
+    LTEXT           "Unknown",IDC_SPEC,67,38,208,8
+    LTEXT           "Spec",IDC_STATIC,22,38,36,8
+    LTEXT           "Family",IDC_STATIC,89,98,24,8
+    LTEXT           "Unknown",IDC_FAMILY,122,98,17,8
+    LTEXT           "Name",IDC_STATIC,22,28,36,8
+    LTEXT           "Unknown",IDC_CPU,67,28,208,8
+    LTEXT           "Stepping",IDC_STATIC,227,98,28,8
+    LTEXT           "Unknown",IDC_STEPPING,262,98,17,8
+    LTEXT           "Clock",IDC_STATIC,22,48,36,8
+    LTEXT           "Unknown",IDC_FREQUENCY,67,48,110,8
+    LTEXT           "Type",IDC_STATIC,22,98,17,8
+    LTEXT           "Unknown",IDC_TYPE,52,98,17,8
+    LTEXT           "L1 data",IDC_STATIC,308,28,25,8
+    LTEXT           "Unknown",IDC_L1_DATA_CACHE,340,28,229,8
+    LTEXT           "Clock rate",IDC_STATIC,308,103,37,8
+    LTEXT           "Mainboard freq",IDC_STATIC,308,113,37,8
+    LTEXT           "Unknown",IDC_MAINBOARD,364,113,110,8
+    PUSHBUTTON      "&About",IDC_ABOUT,329,203,51,18
+    LTEXT           "Unknown",IDC_RATIO,364,103,110,8
+    LTEXT           "Instruction set",IDC_STATIC,22,112,36,8
+    LTEXT           "Unknown",IDC_INSTRUCTION_SET,67,112,208,32
+    LTEXT           "Cores",IDC_STATIC,22,157,25,8
+    LTEXT           "Unknown",IDC_NUM_CORES,52,157,110,8
+    LTEXT           "Threads",IDC_STATIC,22,168,25,8
+    LTEXT           "Unknown",IDC_NUM_THREADS,52,168,110,8
+    LTEXT           "Codename",IDC_STATIC,22,58,36,8
+    LTEXT           "Unknown",IDC_CODENAME,67,58,110,8
+    LTEXT           "Package",IDC_STATIC,22,68,36,8
+    LTEXT           "Unknown",IDC_PACKAGE,67,68,110,8
+    LTEXT           "Technology",IDC_STATIC,22,78,36,8
+    LTEXT           "Unknown",IDC_TECHNOLOGY,67,78,110,8
+    LTEXT           "Transistors",IDC_STATIC,22,88,36,8
+    LTEXT           "Unknown",IDC_TRANSISTORS,67,88,110,8
+    GROUPBOX        "Processor",IDC_STATIC,12,11,277,184
+    GROUPBOX        "Cache",IDC_STATIC,298,12,277,65
+    LTEXT           "L1 code",IDC_STATIC,308,38,25,8
+    LTEXT           "Unknown",IDC_L1_CODE_CACHE,340,38,229,8
+    LTEXT           "L2",IDC_STATIC,308,48,9,8
+    LTEXT           "Unknown",IDC_L2_CACHE,340,48,229,8
+    LTEXT           "L3",IDC_STATIC,308,58,9,8
+    LTEXT           "Unknown",IDC_L3_CACHE,340,58,229,8
+    GROUPBOX        "Clock",IDC_STATIC,298,87,277,65
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_ABOUT_EN, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        TOPMARGIN, 7
+    END
+
+    IDD_CPUINFO_EN, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 580
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 221
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#endif
+#include "afxres.rc"         // Standard components
+#endif
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

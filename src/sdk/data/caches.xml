@@ -1,0 +1,123 @@
+<?xml version='1.0'?>
+
+<cache>
+	<code value="01" type="Code TLB" page="4K" way="4" entry="32"/>
+	<code value="02" type="Code TLB" page="4M" way="FF" entry="2"/>
+	<code value="03" type="Data TLB" page="4K" way="4" entry="64"/>
+	<code value="04" type="Data TLB" page="4M" way="4" entry="8"/>
+	<code value="05" type="Data TLB" page="4M" way="4" entry="32"/>
+	<code value="06" type="L1 code cache" size="8" way="4" line="32"/>
+	<code value="08" type="L1 code cache" size="16" way="4" line="32"/>
+	<code value="09" type="L1 code cache" size="32" way="4" line="64"/>
+	<code value="0A" type="L1 data cache" size="8" way="2" line="32"/>
+	<code value="0B" type="Code TLB" page="4M" way="4" entry="4"/>
+	<code value="0C" type="L1 data cache" size="16" way="4" line="32"/>
+	<code value="0D" type="L1 data cache" size="16" way="4" line="64"/>
+	<code value="0E" type="L1 data cache" size="24" way="6" line="64"/>
+	<code value="10" type="L1 data cache" size="16" way="4" line="32"/>
+	<code value="15" type="L1 code cache" size="16" way="4" line="32"/>
+	<code value="1A" type="L2 cache" size="96" way="6" line="64"/>
+	<code value="21" type="L2 cache" size="256" way="8" line="64"/>
+	<code value="22" type="L3 cache" size="512" way="4" line="64"/>
+	<code value="23" type="L3 cache" size="1024" way="8" line="64"/>
+	<code value="25" type="L3 cache" size="2048" way="8" line="64"/>
+	<code value="29" type="L3 cache" size="4096" way="8" line="64"/>
+	<code value="2C" type="L1 data cache" size="32" way="8" line="64"/>
+	<code value="30" type="L1 code cache" size="32" way="8" line="64"/>
+	<code value="39" type="L2 cache" size="128" way="4" line="64"/>
+	<code value="3A" type="L2 cache" size="192" way="6" line="64"/>
+	<code value="3B" type="L2 cache" size="128" way="2" line="64"/>
+	<code value="3C" type="L2 cache" size="256" way="4" line="64"/>
+	<code value="3D" type="L2 cache" size="384" way="6" line="64"/>
+	<code value="3E" type="L2 cache" size="512" way="4" line="64"/>
+	<code value="40" size="0">
+		<family value="6" type="L2 cache"/>
+		<family value="F" type="L3 cache"/>
+	</code>
+	<code value="41" type="L2 cache" size="128" way="4" line="32"/>
+	<code value="42" type="L2 cache" size="256" way="4" line="32"/>
+	<code value="43" type="L2 cache" size="512" way="4" line="32"/>
+	<code value="44" type="L2 cache" size="1024" way="4" line="32"/>
+	<code value="45" type="L2 cache" size="2048" way="4" line="32"/>
+	<code value="46" type="L3 cache" size="4096" way="4" line="64"/>
+	<code value="47" type="L3 cache" size="8192" way="8" line="64"/>
+	<code value="48" type="L2 cache" size="3072" way="12" line="64"/>
+	<code value="49" type="L3 cache" size="4096" way="16" line="64">
+		<family value="6" type="L2 cache"/>
+		<family value="F" type="L3 cache"/>
+	</code>
+	<code value="4A" type="L3 cache" size="6144" way="12" line="64"/>
+	<code value="4B" type="L3 cache" size="8192" way="16" line="64"/>
+	<code value="4C" type="L3 cache" size="12288" way="12" line="64"/>
+	<code value="4D" type="L3 cache" size="16384" way="16" line="64"/>
+	<code value="4E" type="L2 cache" size="6144" way="24" line="64"/>
+	<code value="4F" type="Code TLB" page="4K" entry="32"/>
+	<code value="50" type="Code TLB" page="4K/4M/2M" way="FF" entry="64"/>
+	<code value="51" type="Code TLB" page="4K/4M/2M" way="FF" entry="128"/>
+	<code value="52" type="Code TLB" page="4K/4M/2M" way="FF" entry="256"/>
+	<code value="55" type="Code TLB" page="2M/4M" way="FF" entry="7"/>
+	<code value="56" type="L0 data TLB" page="4M" way="4" entry="16"/>
+	<code value="57" type="L0 data TLB" page="4K" way="4" entry="16"/>
+	<code value="59" type="L0 data TLB" page="4K" way="FF" entry="16"/>
+	<code value="5A" type="L0 data TLB" page="2M/4M" way="4" entry="32"/>
+	<code value="5B" type="Data TLB" page="4K/4M" way="FF" entry="64"/>
+	<code value="5C" type="Data TLB" page="4K/4M" way="FF" entry="128"/>
+	<code value="5D" type="Data TLB" page="4K/4M" way="FF" entry="256"/>
+	<code value="60" type="L1 data cache" size="16" way="8" line="64"/>
+	<code value="63" type="Data TLB" page="1G" way="4" entry="4"/>
+	<code value="66" type="L1 data cache" size="8" way="4" line="64"/>
+	<code value="67" type="L1 data cache" size="16" way="4" line="64"/>
+	<code value="68" type="L1 data cache" size="32" way="4" line="64"/>
+	<code value="70" type="L1 trace cache" size="12" way="8"/>
+	<code value="71" type="L1 trace cache" size="16" way="8"/>
+	<code value="72" type="L1 trace cache" size="32" way="8"/>
+	<code value="73" type="L1 trace cache" size="64" way="8"/>
+	<code value="76" type="Code TLB" page="2M/4M" way="FF" entry="8"/>
+	<code value="77" type="L1 code cache" size="16" way="4" line="64"/>
+	<code value="78" type="L2 cache" size="1024" way="4" line="64"/>
+	<code value="79" type="L2 cache" size="128" way="8" line="64"/>
+	<code value="7A" type="L2 cache" size="256" way="8" line="64"/>
+	<code value="7B" type="L2 cache" size="512" way="8" line="64"/>
+	<code value="7C" type="L2 cache" size="1024" way="8" line="64"/>
+	<code value="7D" type="L2 cache" size="2048" way="8" line="64"/>
+	<code value="7E" type="L2 cache" size="256" way="8" line="128"/>
+	<code value="7F" type="L2 cache" size="512" way="2" line="64"/>
+	<code value="80" type="L2 cache" size="512" way="8" line="64"/>
+	<code value="81" type="L2 cache" size="128" way="8" line="32"/>
+	<code value="82" type="L2 cache" size="256" way="8" line="32"/>
+	<code value="83" type="L2 cache" size="512" way="8" line="32"/>
+	<code value="84" type="L2 cache" size="1024" way="8" line="32"/>
+	<code value="85" type="L2 cache" size="2048" way="8" line="32"/>
+	<code value="86" type="L2 cache" size="512" way="4" line="64"/>
+	<code value="87" type="L2 cache" size="1024" way="8" line="64"/>
+	<code value="88" type="L3 cache" size="2048" way="4" line="64"/>
+	<code value="89" type="L3 cache" size="4096" way="4" line="64"/>
+	<code value="8A" type="L3 cache" size="8192" way="4" line="64"/>
+	<code value="8D" type="L3 cache" size="3072" way="12" line="128"/>
+	<code value="90" type="Code TLB" page="4K-256M" way="FF" entry="64"/>
+	<code value="96" type="L1 data TLB" page="4K-256M" way="FF" entry="32"/>
+	<code value="9B" type="L2 data TLB" page="4K-256M" way="FF" entry="96"/>
+	<code value="B0" type="Code TLB" page="4K" way="4" entry="128"/>
+	<code value="B1" type="Code TLB" page="4M/2M" way="4" entry="4/8"/>
+	<code value="B2" type="Code TLB" page="4K" way="4" entry="64"/>
+	<code value="B3" type="Data TLB" page="4K" way="4" entry="128"/>
+	<code value="B4" type="Data TLB" page="4K" way="4" entry="256"/>
+	<code value="BA" type="Data TLB" page="4K" way="4" entry="64"/>
+	<code value="C0" type="Data TLB" page="4K/4M" way="4" entry="8"/>
+	<code value="CA" type="L2 TLB" page="4K" way="4" entry="512"/>
+	<code value="D0" type="L3 cache" size="512" way="4" line="64"/>
+	<code value="D1" type="L3 cache" size="1024" way="4" line="64"/>
+	<code value="D2" type="L3 cache" size="2048" way="4" line="64"/>
+	<code value="D6" type="L3 cache" size="1024" way="8" line="64"/>
+	<code value="D7" type="L3 cache" size="2048" way="8" line="64"/>
+	<code value="D8" type="L3 cache" size="4096" way="8" line="64"/>
+	<code value="DC" type="L3 cache" size="1536" way="12" line="64"/>
+	<code value="DD" type="L3 cache" size="3072" way="12" line="64"/>
+	<code value="DE" type="L3 cache" size="6144" way="12" line="64"/>
+	<code value="E2" type="L3 cache" size="2048" way="16" line="64"/>
+	<code value="E3" type="L3 cache" size="4096" way="16" line="64"/>
+	<code value="E4" type="L3 cache" size="8192" way="16" line="64"/>
+	<code value="EA" type="L3 cache" size="12288" way="24" line="64"/>
+	<code value="EB" type="L3 cache" size="18432" way="24" line="64"/>
+	<code value="EC" type="L3 cache" size="24576" way="24" line="64"/>
+</cache>
