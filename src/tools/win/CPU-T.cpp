@@ -13,6 +13,7 @@ DWORD const IDT_UPDATE_FREQ_TIMER = 1;
 HINSTANCE g_instance;
 bool g_in_chs;
 CPUT::CPUInfo g_CpuInfo;
+bool g_quit;
 
 INT_PTR CALLBACK AboutDlgProc(HWND hwndDlg, UINT uMsg, WPARAM wParam, LPARAM /*lParam*/)
 {
@@ -27,7 +28,7 @@ INT_PTR CALLBACK AboutDlgProc(HWND hwndDlg, UINT uMsg, WPARAM wParam, LPARAM /*l
 			return TRUE;
 
 		case IDC_HOMEPAGE:
-			::ShellExecute(NULL, TEXT("open"), TEXT("http://www.klayge.org"), NULL, NULL, SW_SHOWNORMAL);
+			::ShellExecute(NULL, TEXT("open"), TEXT("http://www.klayge.org/about/cpu-t/"), NULL, NULL, SW_SHOWNORMAL);
 			return TRUE;
 		}
 		break;
@@ -59,6 +60,16 @@ void CacheDesc(char* buf, CPUT::CPUInfo::CacheInfo const & cache_info)
 	}
 
 	sprintf(buf, "%s, %s, %dB lines", size_buf, way_buf, cache_info.line);
+}
+
+DWORD WINAPI UpdateFreqThread(LPVOID /*lpParameter*/)
+{
+    while (!g_quit)
+    {
+        g_CpuInfo.UpdateFrequency();
+    }
+
+    return 0;
 }
 
 INT_PTR CALLBACK CPUInfoDlgProc(HWND hwndDlg, UINT uMsg, WPARAM wParam, LPARAM lParam)
@@ -263,8 +274,6 @@ INT_PTR CALLBACK CPUInfoDlgProc(HWND hwndDlg, UINT uMsg, WPARAM wParam, LPARAM l
 	case WM_TIMER:
 		if (IDT_UPDATE_FREQ_TIMER == wParam)
 		{
-			g_CpuInfo.UpdateFrequency();
-
 			TCHAR buf[256];
 			_stprintf(buf, TEXT("%d MHz"), g_CpuInfo.Frequency());
 			::SetDlgItemText(hwndDlg, IDC_FREQUENCY, buf);
@@ -309,8 +318,16 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE /*hPrevInstance*/, LPSTR /*lps
 		g_in_chs = false;
 	}
 
+    g_quit = false;
+
+    DWORD thread_id;
+    HANDLE hUpdateFreqThread = ::CreateThread(nullptr, 0, UpdateFreqThread, nullptr, 0, &thread_id);
+
 	::DialogBox(hInstance, g_in_chs ? MAKEINTRESOURCE(IDD_CPUINFO_CHS) : MAKEINTRESOURCE(IDD_CPUINFO_EN),
 		nullptr, CPUInfoDlgProc);
+
+    g_quit = true;
+    ::CloseHandle(hUpdateFreqThread);
 
 	return FALSE;
 }
