@@ -170,7 +170,7 @@ namespace
 		);
 	#endif
 #else
-        // TODO: Supports other compiler
+		// TODO: Supports other compiler
 #endif
 	}
 #endif
@@ -999,11 +999,11 @@ namespace CPUT
 
 	unsigned int CPUInfo::MaxStdFn() const
 	{
-		return cpuid_std_fn_results_.size() / 4;
+		return static_cast<unsigned int>(cpuid_std_fn_results_.size() / 4);
 	}
 
 	unsigned int CPUInfo::MaxExtFn() const
 	{
-		return cpuid_ext_fn_results_.size() / 4 + 0x80000000;
+		return static_cast<unsigned int>(cpuid_ext_fn_results_.size() / 4 + 0x80000000);
 	}
 }

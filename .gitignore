@@ -8,3 +8,4 @@ build/vc*
 /lib/win_x64
 /src/sdk/CPUIdentifier.cpp
 /src/sdk/CacheIdentifier.cpp
+__pycache__
