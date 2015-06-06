@@ -5,42 +5,9 @@ import os, sys, multiprocessing, subprocess
 try:
 	import cfg_build
 except:
-	cfg_build_f = open("cfg_build.py", "w")
-	cfg_build_f.write("""################################################
-# !!!! DO NOT DELETE ANY FIELD OF THIS FILE !!!!
-################################################
-
-# Compiler name.
-#   On Windows desktop, could be "vc140", "vc120", "vc110", "vc100", "vc90", "mingw", "auto".
-#   On Windows store, could be "vc140", "vc120", "vc110", "auto".
-#   On Windows phone, could be "vc140", "vc120", "vc110", "auto".
-#   On Android, could be "gcc", "auto".
-#   On Linux, could be "gcc", "auto".
-compiler		= "auto"
-
-# Toolset name.
-#   On Windows desktop, could be "vc140", "v140_xp", "v120", "v120_xp", "v110", "v110_xp", "v100", "auto".
-#   On Windows store, could be "auto".
-#   On Windows phone, could be "auto".
-#   On Android, could be "4.4.3", "4.6", "4.8", "4.9", "auto".
-#   On Linux, could be "auto".
-toolset			= "auto"
-
-# Target CPU architecture.
-#   On Windows desktop, could be "x86", "x64".
-#   On Windows store, could be "arm", "x86", "x64".
-#   On Windows phone, could be "arm", "x86".
-#   On Android, cound be "armeabi", "armeabi-v7a", "arm64-v8a", "x86", "x86_64".
-#   On Linux, could be "x86", "x64".
-arch			= ("x64", )
-
-# Configuration. Could be "Debug", "Release", "MinSizeRel", "RelWithDebInfo".
-config			= ("Debug", "RelWithDebInfo")
-
-# Target platform for cross compiling. Could be "android", "win_store", "win_phone" plus version number, or "auto".
-target			= "auto"
-""")
-	cfg_build_f.close()
+	print("Generating cfg_build.py ...")
+	import shutil
+	shutil.copyfile("cfg_build_default.py", "cfg_build.py")
 	import cfg_build
 
 class cfg_from_argv:
@@ -54,7 +21,7 @@ class cfg_from_argv:
 		else:
 			self.archs = ""
 		if len(argv) > base + 3:
-			self.cfg = argv[base + 3]
+			self.cfg = (argv[base + 3], )
 		else:
 			self.cfg = ""
 
@@ -72,6 +39,7 @@ class compiler_info:
 		self.is_android = False
 		self.is_linux = False
 		self.is_darwin = False
+		self.is_ios = False
 
 		if "win" == target_platform:
 			self.is_windows = True
@@ -88,6 +56,10 @@ class compiler_info:
 			self.is_linux = True
 		elif "darwin" == target_platform:
 			self.is_darwin = True
+		elif "ios" == target_platform:
+			self.is_ios = True
+
+		self.is_dev_platform = (self.is_windows_desktop or self.is_linux or self.is_darwin)
 
 class build_info:
 	def __init__(self, compiler, archs, cfg):
@@ -132,6 +104,10 @@ class build_info:
 					target_platform = target_platform[0:space_place]
 					if "L" == android_ver:
 						target_api_level = "L"
+					elif "5.0" == android_ver:
+						target_api_level = "21"
+					elif "4.4w" == android_ver:
+						target_api_level = "20"
 					elif "4.4" == android_ver:
 						target_api_level = "19"
 					elif "4.3" == android_ver:
@@ -183,7 +159,7 @@ class build_info:
 				else:
 					target_api_level = "8.0"
 				self.target_api_level = target_api_level
-		if "android" == target_platform:
+		if ("android" == target_platform) or ("ios" == target_platform):
 			prefer_static = True
 		else:
 			prefer_static = False
@@ -203,22 +179,20 @@ class build_info:
 						compiler = "vc110"
 					elif "VS100COMNTOOLS" in env:
 						compiler = "vc100"
-					elif "VS90COMNTOOLS" in env:
-						compiler = "vc90"
 					elif 0 == os.system("where clang++"):
 						compiler = "clang"
 					elif os.path.exists("C:/MinGW/bin/g++.exe") or (0 == os.system("where g++")):
 						compiler = "mingw"
-				elif "linux" == target_platform:
+				elif ("linux" == target_platform) or ("android" == target_platform):
 					compiler = "gcc"
-				elif "darwin" == target_platform:
+				elif ("darwin" == target_platform) or ("ios" == target_platform):
 					compiler = "clang"
 				else:
-					log_error("Unsupported target platform\n")
+					log_error("Unsupported target platform.\n")
 			else:
 				compiler = cfg_build.compiler
 
-				if compiler in ("vc14", "vc12", "vc11", "vc10", "vc9"):
+				if compiler in ("vc14", "vc12", "vc11", "vc10"):
 					compiler += '0'
 					log_warning("Deprecated compiler name, please use " + compiler + " instead.\n")
 
@@ -235,8 +209,6 @@ class build_info:
 					toolset = "v110"
 				elif "vc100" == compiler:
 					toolset = "v100"
-				elif "vc90" == compiler:
-					toolset = "v90"
 			elif "android" == target_platform:
 				if "L" == target_api_level:
 					toolset = "4.9"
@@ -301,22 +273,12 @@ class build_info:
 				elif "x64" == arch:
 					gen_name = "Visual Studio 10 Win64"
 				compilers.append(compiler_info(arch, gen_name, toolset, target_platform))
-		elif "vc90" == compiler:
-			compiler_name = "vc"
-			compiler_version = 90
-			multi_config = True
-			for arch in archs:
-				if "x86" == arch:
-					gen_name = "Visual Studio 9 2008"
-				elif "x64" == arch:
-					gen_name = "Visual Studio 9 2008 Win64"
-				compilers.append(compiler_info(arch, gen_name, toolset, target_platform))
 		elif "clang" == compiler:
 			compiler_name = "clang"
 			compiler_version = self.retrive_clang_version()
 			if "win" == host_platform:
 				gen_name = "MinGW Makefiles"
-			elif "darwin" == host_platform:
+			elif ("darwin" == host_platform) or ("ios" == host_platform):
 				gen_name = "Xcode"
 				multi_config = True
 			else:
@@ -341,42 +303,29 @@ class build_info:
 		else:
 			compiler_name = ""
 			compiler_version = 0
-			log_error("Wrong configuration\n")
+			log_error("Unsupported compiler.\n")
 
 		if "vc" == compiler_name:
-			if compiler_version >= 100:
-				self.use_msbuild = True
-				self.proj_ext_name = "vcxproj"
-			else:
-				self.use_msbuild = False
-				self.proj_ext_name = "vcproj"
+			self.proj_ext_name = "vcxproj"
 		else:
-			self.use_msbuild = False
 			self.proj_ext_name = ""
 
 		self.compiler_name = compiler_name
 		self.compiler_version = compiler_version
-		self.multi_config = multi_config;
+		self.multi_config = multi_config
 		self.compilers = compilers
 		self.cfg = cfg
 
 	def msvc_add_build_command(self, batch_cmd, sln_name, proj_name, config, arch = ""):
-		if self.use_msbuild:
-			batch_cmd.add_command('@SET VisualStudioVersion=%d.0' % (self.compiler_version / 10))
-			if len(proj_name) != 0:
-				file_name = "%s.%s" % (proj_name, self.proj_ext_name)
-			else:
-				file_name = "%s.sln" % sln_name
-			config_str = "Configuration=%s" % config
-			if len(arch) != 0:
-				config_str = "%s,Platform=%s" % (config_str, arch)
-			batch_cmd.add_command('@MSBuild %s /nologo /m /v:m /p:%s' % (file_name, config_str))
+		batch_cmd.add_command('@SET VisualStudioVersion=%d.0' % (self.compiler_version / 10))
+		if len(proj_name) != 0:
+			file_name = "%s.%s" % (proj_name, self.proj_ext_name)
 		else:
-			config_str = config
-			proj_str = ""
-			if len(proj_name) != 0:
-				proj_str = "/project %s" % proj_name
-			batch_cmd.add_command('@devenv %s.sln /Build %s %s' % (sln_name, config_str, proj_str))
+			file_name = "%s.sln" % sln_name
+		config_str = "Configuration=%s" % config
+		if len(arch) != 0:
+			config_str = "%s,Platform=%s" % (config_str, arch)
+		batch_cmd.add_command('@MSBuild %s /nologo /m /v:m /p:%s' % (file_name, config_str))
 		batch_cmd.add_command('@if ERRORLEVEL 1 exit /B 1')
 		
 	def xcodebuild_add_build_command(self, batch_cmd, target_name, config):
@@ -444,6 +393,28 @@ def build_a_project(name, build_path, build_info, compiler_info, need_install = 
 	if "android" == build_info.target_platform:
 		additional_options += " -DCMAKE_TOOLCHAIN_FILE=\"%s/cmake/android.toolchain.cmake\"" % curdir
 		additional_options += " -DANDROID_NATIVE_API_LEVEL=%s" % build_info.target_api_level
+		if "win" == build_info.host_platform:
+			android_ndk_path = os.environ["ANDROID_NDK"]
+			prebuilt_make_path = android_ndk_path + "\\prebuilt\\windows"
+			if not os.path.isdir(prebuilt_make_path):
+				prebuilt_make_path = android_ndk_path + "\\prebuilt\\windows-x86_64"
+			make_name = prebuilt_make_path + "\\bin\\make.exe"
+			additional_options += " -DCMAKE_MAKE_PROGRAM=\"%s\"" % make_name
+	elif "darwin" == build_info.target_platform:
+		if "x64" == compiler_info.arch:
+			additional_options += " -DCMAKE_OSX_ARCHITECTURES=x86_64"
+		elif "x86" == compiler_info.arch:
+			additional_options += " -DCMAKE_OSX_ARCHITECTURES=i386"
+		else:
+			log_error("Unsupported Darwin arch\n")
+	elif "ios" == build_info.target_platform:
+		additional_options += " -DCMAKE_TOOLCHAIN_FILE=\"%s/cmake/iOS.cmake\"" % curdir
+		if "arm" == compiler_info.arch:
+			additional_options += " -DIOS_PLATFORM=OS"
+		elif "x86" == compiler_info.arch:
+			additional_options += " -DIOS_PLATFORM=SIMULATOR"
+		else:
+			log_error("Unsupported iOS arch\n")
 
 	if build_info.multi_config:
 		if "vc" == build_info.compiler_name:
@@ -464,7 +435,7 @@ def build_a_project(name, build_path, build_info, compiler_info, need_install = 
 				system_name = "WindowsPhone"
 			additional_options += " -DCMAKE_SYSTEM_NAME=%s -DCMAKE_SYSTEM_VERSION=%s" % (system_name, build_info.target_api_level)
 
-		build_dir = "%s/build/%s%d_%s_%s" % (build_path, build_info.compiler_name, build_info.compiler_version, build_info.target_platform, compiler_info.arch)
+		build_dir = "%s/Build/%s%d_%s_%s" % (build_path, build_info.compiler_name, build_info.compiler_version, build_info.target_platform, compiler_info.arch)
 		if not os.path.exists(build_dir):
 			os.makedirs(build_dir)
 
@@ -485,7 +456,7 @@ def build_a_project(name, build_path, build_info, compiler_info, need_install = 
 					build_info.msvc_add_build_command(build_cmd, name, "INSTALL", config, vc_arch)
 			elif "clang" == build_info.compiler_name:
 				build_info.xcodebuild_add_build_command(build_cmd, "ALL_BUILD", config)
-				if need_install:
+				if need_install and (not build_info.prefer_static):
 					build_info.xcodebuild_add_build_command(build_cmd, "install", config)
 		if build_cmd.execute() != 0:
 			log_error("Build %s failed." % name)
@@ -493,16 +464,14 @@ def build_a_project(name, build_path, build_info, compiler_info, need_install = 
 		os.chdir(curdir)
 	else:
 		if "win" == build_info.host_platform:
-			if "android" == build_info.target_platform:
-				make_name = "%s\\prebuilt\\windows\\bin\\make.exe" % os.environ["ANDROID_NDK"]
-			else:
+			if build_info.target_platform != "android":
 				make_name = "mingw32-make.exe"
 		else:
 			make_name = "make"
 		make_name += " -j%d" % multiprocessing.cpu_count()
 
 		for config in build_info.cfg:
-			build_dir = "%s/build/%s%d_%s_%s-%s" % (build_path, build_info.compiler_name, build_info.compiler_version, build_info.target_platform, compiler_info.arch, config)
+			build_dir = "%s/Build/%s%d_%s_%s-%s" % (build_path, build_info.compiler_name, build_info.compiler_version, build_info.target_platform, compiler_info.arch, config)
 			if not os.path.exists(build_dir):
 				os.makedirs(build_dir)
 				if ("clang" == build_info.compiler_name) and (build_info.target_platform != "android"):
@@ -536,7 +505,7 @@ def build_a_project(name, build_path, build_info, compiler_info, need_install = 
 				build_cmd.add_command('@if ERRORLEVEL 1 exit /B 1')
 			else:
 				build_cmd.add_command("%s %s" % (make_name, install_str))
-				build_cmd.add_command('if (($? != 0)); then exit 1; fi')
+				build_cmd.add_command('if [ $? -ne 0 ]; then exit 1; fi')
 			if build_cmd.execute() != 0:
 				log_error("Build %s failed." % name)
 
